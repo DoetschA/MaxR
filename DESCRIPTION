@@ -1,0 +1,12 @@
+Package: MaxR
+Title: Collection of scripts for microbiome analysis
+Version: 0.0.1
+Authors@R: 
+    person("Andreas", "Doetsch", , "andreas.doetsch@mri.bund.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9086-2584"))
+Description: It is a rather uncoordinated mix of scripts for various purposes that are useful for the analysis of microbiome data. Most of the scripts build upon existing packages like phyloseq but offer some quality-of-life additions.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
