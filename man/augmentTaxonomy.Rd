@@ -2,13 +2,15 @@
 % Please edit documentation in R/augmentTaxonomy.R
 \name{augmentTaxonomy}
 \alias{augmentTaxonomy}
-\title{Augment a taxonomy table}
+\title{Augment a taxonomy table (Version 1.3)}
 \usage{
 augmentTaxonomy(
   taxtab,
   useBinomSpecies = TRUE,
   numberUnclassified = TRUE,
-  replaceIncertaeSedis = TRUE
+  replaceIncertaeSedis = TRUE,
+  IS_label = "Incertae Sedis",
+  binomsep = " "
 )
 }
 \arguments{
@@ -19,13 +21,37 @@ augmentTaxonomy(
 \item{numberUnclassified}{use numbers to distinguish uncharacterized taxa that belong to the same higher-level taxon (default = TRUE)}
 
 \item{replaceIncertaeSedis}{if any name is "Incertae Sedis", this name is replaced by the next higher tax level with the addition "_i.s." (default = TRUE)}
+
+\item{IS_label}{how incertae sedis is displayed in the taxonomy (Default: 'Incertae Sedis')}
+
+\item{binomsep}{separator between genus and species term in binomial species name (Default: ' ')}
 }
 \value{
 augmented taxonomy table
 }
 \description{
 Uncharacterized taxa (name "NA") will be replaced with the names of the last defined taxonomic level.
-The taxa can additionally be numbered
+The taxa can additionally be numbered.
+}
+\details{
+Changelog:
+
+v1.1:
+\itemize{
+\item writing short symbols for taxonomic levels now as prefixes instead of suffixes.
+\item tax symbols are not accumulated
+\item added variable labels for incertae sedis and separator for binomial species names
+}
+
+v1.2: (16.10.2025)
+\itemize{
+\item fixed bug leading to crashes when counting NAs
+}
+
+v1.3: (30.1.2025)
+\itemize{
+\item fixed bug leading to crashes with NAs occuring in the first column
+}
 }
 \examples{
 taxtab <- augmentTaxonomy(taxtab)

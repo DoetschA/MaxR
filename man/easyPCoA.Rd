@@ -2,13 +2,14 @@
 % Please edit documentation in R/easyPCoA.R
 \name{easyPCoA}
 \alias{easyPCoA}
-\title{A wrapper for simplified use of phyloseq's plot_ordination}
+\title{A wrapper for simplified use of phyloseq's plot_ordination (version 1.1)}
 \usage{
 easyPCoA(
   physeq,
   ord,
   color = NULL,
   shape = NULL,
+  connect_by = NULL,
   size = 3,
   axes = c(1, 2),
   colorpal = NULL,
@@ -25,6 +26,8 @@ easyPCoA(
 \item{color}{name of the variable to be displayed as colors (optional)}
 
 \item{shape}{name of the variable to be displayed as colors (optional)}
+
+\item{connect_by}{name of the variable used to group data points that should be connected (optional)}
 
 \item{size}{data point size (default: 3)}
 
@@ -48,6 +51,13 @@ The following ggplot options are used by default:
 \item theme(text = element_text(size = textsize), legend.key.size = unit(legend.key.size, "mm")) # allowing control of textsize and legend key size per parameter
 \item scale_color_manual(values = colorpal) # setting color paletter per parameter
 \item ggtitle(title) # setting the title per parameter
+}
+}
+\details{
+Changelog
+v1.1 (23.10.2025)
+\itemize{
+\item added functionality to connect datapoints by grouping them
 }
 }
 \examples{

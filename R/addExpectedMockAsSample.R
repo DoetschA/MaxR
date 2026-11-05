@@ -23,10 +23,12 @@ addExpectedMockAsSample <- function(physeq, mockName, definition = "/data/db/moc
   #browser()
 
   # prepare taxonomy
-  mock.tax <- as.matrix(mock.def[,c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")])
+  mock.tax <- as.matrix(cbind(mock.def[,c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")],"ASV"))
   rownames(mock.tax) <- mock.def$mockID
-  if(dim(tax_table(physeq))[2] == 6){ # remove Species if absent from physeq object
-    mock.tax <- mock.tax[,1:6]
+  ntaxlevels <- dim(tax_table(physeq))[2]
+  if(ntaxlevels < 8){
+    # reduce table to dimensions corresponding to the phyloseq object
+    mock.tax <- mock.tax[,1:ntaxlevels]
   }
 
   # prepare sample data

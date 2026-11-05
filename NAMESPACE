@@ -2,6 +2,7 @@
 
 export(addExpectedMockAsSample)
 export(augmentTaxonomy)
+export(bargraph_stacked)
 export(bargraph_top_taxa)
 export(create_palette)
 export(dada2_concat_pipeline)
